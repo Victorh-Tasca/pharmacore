@@ -1,0 +1,260 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 20px; 
+}
+
+/* --- Container Principal --- */
+.login-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden; 
+    width: 900px;
+    max-width: 100%;
+    min-height: 550px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Painéis de Formulário --- */
+.form-panel {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 40px;
+    background-color: transparent; 
+    padding-top: 60px;
+    transition: all 0.6s ease-in-out;
+}
+
+.form-panel form {
+    width: 100%;
+    max-width: 350px; 
+    background-color: transparent; 
+}
+
+.form-control {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* --- Posições Iniciais --- */
+.login-panel {
+    left: 50%;
+    z-index: 2;
+    opacity: 1;
+}
+.register-panel {
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transform: translateX(-100%);
+    justify-content: flex-start;
+    padding-top: 60px;
+}
+
+/* --- Painel de Overlay (Slide) --- */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 100;
+    transition: transform 0.6s ease-in-out;
+}
+
+.overlay {
+    background: #0d2c4b;
+    background: linear-gradient(to right, #0d2c4b, #0a2034);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    position: relative;
+    height: 100%;
+    width: 200%; 
+    transform: translateX(-50%); 
+    transition: transform 0.6s ease-in-out, background 0.3s ease;
+}
+
+.overlay-panel {
+    position: absolute;
+    top: 0;
+    width: 50%; 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    color: #ffffff;
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+}
+.overlay-left { 
+    left: 0; 
+    transform: translateX(-20%); 
+    opacity: 0; 
+}
+.overlay-right { 
+    right: 0; 
+    transform: translateX(0); 
+    opacity: 1; 
+}
+.overlay .logo { 
+    width: 120px; 
+    height: auto; 
+}
+.overlay .btn-register { 
+    border-width: 2px; 
+    font-weight: bold; 
+}
+
+/* --- Lógica da Animação --- */
+.login-container.right-panel-active .overlay-container {
+    transform: translateX(100%);
+}
+.login-container.right-panel-active .overlay {
+    transform: translateX(0);
+}
+.login-container.right-panel-active .overlay-left {
+    transform: translateX(0);
+    opacity: 1;
+}
+.login-container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+    opacity: 0;
+}
+.login-container.right-panel-active .login-panel {
+    transform: translateX(100%);
+    z-index: 1;
+    opacity: 0;
+}
+.login-container.right-panel-active .register-panel {
+    transform: translateX(0);
+    z-index: 2;
+    opacity: 1;
+}
+
+/* --- Botões e Links --- */
+.btn-google {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.btn-google:hover { 
+    background-color: #f8f8f8; 
+    border-color: #ccc; 
+    color: #222; 
+}
+
+.divider { 
+    width: 100%; 
+    max-width: 350px; 
+}
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+.divider p { 
+    margin: 0 10px; 
+    transition: color 0.3s ease; 
+}
+
+.forgot-password-link {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: #0d6efd;
+    transition: color 0.3s ease;
+}
+.forgot-password-link:hover { 
+    text-decoration: underline; 
+}
+
+/* --- Media Query (Mobile) --- */
+@media (max-width: 768px) {
+    body { 
+        display: block; 
+        padding: 0; 
+    }
+    .login-container { 
+        width: 100%; 
+        max-width: 100%; 
+        min-height: 100vh; 
+        border-radius: 0; 
+        flex-direction: column; 
+    }
+    .form-panel, .overlay-container { 
+        position: relative; 
+        width: 100%; 
+        left: 0; 
+        transform: none !important; 
+    }
+    .overlay-container { 
+        min-height: 250px; 
+    }
+    .overlay { 
+        width: 100%; 
+        transform: none !important; 
+        flex-direction: column; 
+    }
+    .overlay-panel { 
+        width: 100%; 
+        padding: 20px; 
+        transform: none !important; 
+        opacity: 0; 
+        height: auto; 
+        position: relative; 
+        left: 0; 
+        right: 0; 
+    }
+    .login-panel { 
+        display: flex; 
+        z-index: 2;
+    }
+    .register-panel { 
+        display: none; 
+        z-index: 1; 
+    } 
+    .overlay-right { 
+        opacity: 1; 
+        display: flex;
+    } 
+    .overlay-left { 
+        opacity: 0; 
+        display: none;
+    } 
+    .login-container.right-panel-active .login-panel { 
+        display: none; 
+    }
+    .login-container.right-panel-active .register-panel { 
+        display: flex; 
+        z-index: 2; 
+    }
+    .login-container.right-panel-active .overlay-container { 
+        transform: translateX(0); 
+    }
+    .login-container.right-panel-active .overlay-right { 
+        display: none; 
+        opacity: 0; 
+    }
+    .login-container.right-panel-active .overlay-left { 
+        display: flex; 
+        opacity: 1; 
+    }
+}

@@ -1,0 +1,108 @@
+/* --- Estilos do Modo Noturno e Toggle --- */
+
+.theme-switcher { 
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    z-index: 200; 
+}
+.theme-switcher input { 
+    display: none; 
+}
+.theme-switcher .slider { 
+    cursor: pointer; 
+    width: 50px; 
+    height: 25px; 
+    background-color: #ccc; 
+    border-radius: 25px; 
+    display: block; 
+    position: relative; 
+    transition: background-color 0.3s; 
+}
+.theme-switcher .slider::before { 
+    content: ''; 
+    position: absolute; 
+    height: 19px; 
+    width: 19px; 
+    left: 3px; 
+    bottom: 3px; 
+    background-color: white; 
+    border-radius: 50%; 
+    transition: 0.3s; 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="%23f39c12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>'); 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+.theme-switcher input:checked + .slider { 
+    background-color: #2196F3; 
+}
+.theme-switcher input:checked + .slider::before { 
+    transform: translateX(25px); 
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="%23f1c40f" stroke="none"><path d="M21.75 13.03A9.95 9.95 0 0 1 12.03 2.25c.02 0 .04 0 .06 0A9.75 9.75 0 0 0 2.25 12c0 5.38 4.37 9.75 9.75 9.75 4.3 0 7.97-2.8 9.17-6.66a.75.75 0 0 1-.42-1.06z"></path></svg>'); 
+}
+
+/* --- Cores Globais (Dark Mode) --- */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .login-container {
+    background-color: #1e1e1e; 
+    border: 1px solid #333;
+}
+
+body.dark-mode .overlay {
+    background: #2a2a2a; 
+    background: linear-gradient(to right, #2a2a2a, #1a1a1a); 
+}
+
+/* --- Elementos de Formulário --- */
+body.dark-mode h2 {
+    color: #ffffff;
+}
+
+body.dark-mode .form-control {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #555;
+}
+
+body.dark-mode .form-control:focus {
+    background-color: #333;
+    color: #ffffff;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+body.dark-mode .form-floating > label {
+    color: #aaa;
+}
+
+/* --- Elementos de Divisão --- */
+body.dark-mode .divider p {
+    color: #888;
+}
+
+body.dark-mode .divider::before,
+body.dark-mode .divider::after {
+    border-color: #555;
+}
+
+/* --- Botões e Links --- */
+body.dark-mode .btn-google {
+    background-color: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+body.dark-mode .btn-google:hover {
+    background-color: #444;
+}
+
+body.dark-mode .forgot-password-link {
+    color: #adb5bd; 
+}
+
+body.dark-mode .forgot-password-link:hover {
+    color: #ced4da;
+}

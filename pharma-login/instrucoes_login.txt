@@ -1,0 +1,74 @@
+Olá, time!
+
+Acabei de subir a pasta `pharma-login` para o repositório.
+
+Esta pasta contém o front-end completo e finalizado da nossa tela de autenticação. O que está incluído:
+
+- HTML, CSS e JS separados para a funcionalidade.
+- Formulário de Login (com usuário, senha e "Esqueceu a senha?").
+- Formulário de Cadastro (com nome, e-mail e senha).
+- Animação de "Slide" suave entre as telas de login e cadastro.
+- Modo Noturno (Dark Mode) totalmente funcional e sincronizado.
+- Design Responsivo (se adapta a telas de celular).
+- Botão "Entrar com Google" (placeholder visual).
+
+A tela está 100% pronta para ser conectada ao back-end.
+
+======================================================================
+== INFORMATIVO TÉCNICO PARA O BACK-END ==
+======================================================================
+
+Abaixo estão os detalhes técnicos para conectar a API aos formulários de front-end da pasta `pharma-login`.
+
+O arquivo `script.js` desta pasta já cuida das animações de slide e do modo noturno. A lógica de submissão de formulário (fetch/AJAX) precisará ser adicionada a ele (ou em um novo arquivo).
+
+---
+1. Estrutura dos Formulários e IDs
+---
+
+Existem dois formulários principais no `index.html`:
+
+Formulário de Login (Inicialmente visível à direita):
+- Container: <div class="form-panel login-panel">
+- Formulário: <form action="#"> (A ação precisará ser atualizada)
+- Input de Usuário/E-mail: id="floatingInput"
+- Input de Senha: id="floatingPassword"
+- Botão de Envio: type="submit" (Botão "Entrar")
+
+Formulário de Cadastro (Aparece após o slide):
+- Container: <div class="form-panel register-panel">
+- Formulário: <form action="#">
+- Input de Nome: id="regName"
+- Input de E-mail: id="regEmail"
+- Input de Senha: id="regPassword"
+- Botão de Envio: type="submit" (Botão "Cadastrar")
+
+---
+2. Fluxo de Integração Sugerido
+---
+
+Para evitar o recarregamento da página, recomendo que o `script.js` capture o evento `submit` dos formulários (`event.preventDefault()`) e use a API `fetch` para se comunicar com o back-end.
+
+A. Endpoint de Login (Ex: POST /api/login)
+- Envio (JSON):
+  {
+    "email": "valor_do_floatingInput",
+    "senha": "valor_do_floatingPassword"
+  }
+- Resposta (Sucesso): O front-end espera receber um token (ex: JWT). Ao receber, ele salvará o token (ex: no localStorage) e fará o redirecionamento para a dashboard:
+  `window.location.href = "../pharma-dashboard/index.html";`
+- Resposta (Erro): O front-end espera uma mensagem de erro (ex: "Usuário ou senha inválidos") para exibir na tela.
+
+B. Endpoint de Cadastro (Ex: POST /api/register)
+- Envio (JSON):
+  {
+    "nome": "valor_do_regName",
+    "email": "valor_do_regEmail",
+    "senha": "valor_do_regPassword"
+  }
+- Resposta (Sucesso): O front-end espera uma mensagem de sucesso (ex: "Conta criada!"). O ideal é que, após o sucesso, o front-end ative o slide de volta para a tela de login.
+- Resposta (Erro): O front-end espera uma mensagem de erro (ex: "Este e-mail já está em uso") para exibir na tela.
+
+C. Outras Ações
+- Entrar com Google (`.btn-google`): Este botão precisará do link de autenticação OAuth 2.0 que será fornecido pelo back-end.
+- Esqueceu a senha? (`.forgot-password-link`): Este link deve apontar para a futura página ou modal de recuperação de senha.
