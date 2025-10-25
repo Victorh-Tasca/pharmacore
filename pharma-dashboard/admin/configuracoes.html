@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaKore - Configurações</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../images/favicon/site.webmanifest">
+    <link rel="icon" href="../images/favicon/favicon.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+</head>
+<body>
+    
+    <div class="d-flex" id="wrapper">
+
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logop.png" alt="Logo PharmaKore" class="sidebar-logo">
+                <h3>PharmaKore</h3>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="bi bi-grid-fill"></i> DashBoard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../estoque/estoque.html">
+                        <i class="bi bi-box-seam-fill"></i> Estoque (Lotes)
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../estoque/estoque_medicamento.html">
+                        <i class="bi bi-clipboard-data-fill"></i> Estoque (Medicamentos)
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">CADASTROS</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/medicamentos.html">
+                        <i class="bi bi-plus-circle-fill"></i> Medicamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/pacientes.html">
+                        <i class="bi bi-person-fill"></i> Pacientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/laboratorios.html">
+                        <i class="bi bi-building"></i> Laboratórios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/classes_terapeuticas.html">
+                        <i class="bi bi-tags-fill"></i> Classes Terapêuticas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/fornecedores.html">
+                        <i class="bi bi-truck"></i> Fornecedores
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">RELATÓRIOS</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../relatorios/alertas.html">
+                        <i class="bi bi-exclamation-triangle-fill"></i> Alertas de Validade
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../relatorios/relatorios.html">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i> Relatórios
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">ADMINISTRAÇÃO</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/usuarios.html">
+                        <i class="bi bi-people-fill"></i> Usuários
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/papeis.html">
+                        <i class="bi bi-shield-lock-fill"></i> Papéis e Permissões
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="configuracoes.html">
+                        <i class="bi bi-gear-fill"></i> Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id="main-content">
+            
+            <header class="topbar shadow-sm">
+                <button class="btn btn-light d-lg-none" id="sidebar-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="ms-auto d-flex align-items-center">
+                    <div class="theme-switcher me-3">
+                        <input type="checkbox" id="darkModeToggle">
+                        <label for="darkModeToggle" class="slider"></label>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Olá, Leo
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Sair</a></li> </ul>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="container-fluid p-4">
+                <h1 class="h2 mb-4">Configurações</h1>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Meus Dados</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="formMeusDados">
+                                    <div class="mb-3">
+                                        <label for="nome" class="form-label">Nome Completo</label>
+                                        <input type="text" class="form-control" id="nome" value="Leo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="celular" class="form-label">Celular</label>
+                                        <input type="text" class="form-control" id="celular" value="17999999999">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="login" class="form-label">Login</label>
+                                        <input type="text" class="form-control" id="login" value="leo" readonly disabled>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email" value="leo@email.com" readonly disabled>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="card shadow-sm mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Alterar Senha</h5>
+                            </div>
+                            <div class="card-body">
+                                <form id="formAlterarSenha">
+                                    <div class="mb-3">
+                                        <label for="senha_atual" class="form-label">Senha Atual</label>
+                                        <input type="password" class="form-control" id="senha_atual" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nova_senha" class="form-label">Nova Senha</label>
+                                        <input type="password" class="form-control" id="nova_senha" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="nova_senha_confirm" class="form-label">Confirmar Nova Senha</label>
+                                        <input type="password" class="form-control" id="nova_senha_confirm" required>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Alterar Senha</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    </body>
+</html>

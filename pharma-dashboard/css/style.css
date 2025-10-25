@@ -1,0 +1,155 @@
+
+:root {
+    --pharma-blue: #0d2c4b;
+    --pharma-accent: #00e0ff;
+}
+
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f2f5; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#wrapper { display: flex; min-height: 100vh; }
+
+.sidebar { width: 260px; background-color: var(--pharma-blue); color: #ffffff; transition: margin-left 0.3s ease; flex-shrink: 0; }
+.sidebar-header { padding: 20px; display: flex; align-items: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.sidebar-logo { width: 40px; height: 40px; margin-right: 15px; }
+.sidebar-header h3 { color: #ffffff; font-size: 1.25rem; font-weight: bold; margin-bottom: 0; }
+
+.sidebar .nav-link { 
+    color: #adb5bd; 
+    padding: 12px 20px; 
+    font-weight: 500; 
+    transition: all 0.2s ease; 
+    border-left: 4px solid transparent; 
+}
+.sidebar .nav-link i { 
+    margin-right: 10px; 
+    font-size: 1.1rem; 
+    width: 20px; 
+    text-align: center; 
+}
+
+
+.sidebar .nav-link:hover { 
+    color: var(--pharma-accent); 
+    background-color: rgba(0, 0, 0, 0.2); 
+    padding-left: 16px; 
+    border-left: 4px solid var(--pharma-accent); 
+}
+
+
+.sidebar .nav-link.active { 
+    color: var(--pharma-accent); 
+    font-weight: bold; 
+    border-left: 4px solid var(--pharma-accent); 
+    background-color: rgba(0, 0, 0, 0.3); 
+    padding-left: 16px; 
+}
+
+
+.sidebar .nav-link.active:hover {
+    color: var(--pharma-accent);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+#main-content {
+    flex-grow: 1; 
+    background-color: #f0f2f5;
+    transition: background-color 0.3s ease;
+    min-width: 0; 
+}
+
+/* --- Topbar --- */
+.topbar { background-color: #ffffff; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; transition: background-color 0.3s ease, border-color 0.3s ease; }
+.topbar .nav-link { color: #333; transition: color 0.3s ease; }
+.dropdown-menu { transition: background-color 0.3s ease, border-color 0.3s ease; }
+.dropdown-item { transition: color 0.3s ease, background-color 0.3s ease; }
+#sidebar-toggle { display: none; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
+
+/* --- Títulos --- */
+h1, h2, h5, .display-4 {
+    transition: color 0.3s ease;
+}
+
+/* --- Cards de Status --- */
+.card { transition: background-color 0.3s ease, border-color 0.3s ease; }
+.stat-card { border: none; border-left-width: 5px; border-left-style: solid; transition: background-color 0.3s ease, border-color 0.3s ease; }
+.stat-card .card-title { font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
+
+/* --- Tabela (Dashboard e Estoque) --- */
+.card .card-header {
+    background-color: #f8f9fa;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.table {
+    transition: border-color 0.3s ease;
+}
+.table th,
+.table td {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    vertical-align: middle; 
+}
+
+/* --- (Página de Estoque) ::: --- */
+
+/* Barra de Filtros e Busca */
+.filter-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 1rem; 
+}
+
+
+.pagination {
+    margin-bottom: 0; 
+}
+.page-link {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.pagination {
+    margin-bottom: 0; 
+}
+.page-link {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.form-label {
+    transition: color 0.3s ease;
+}
+
+
+/* --- Estilos para os Divisores da Sidebar --- */
+.sidebar .sidebar-divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .nav-item-title {
+    padding: 10px 20px 0px 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #8899a6; 
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+/* --- Fim dos Estilos da Sidebar --- */
+
+
+/* --- Responsividade (Mobile) --- */
+@media (max-width: 992px) {
+    .sidebar { position: fixed; top: 0; bottom: 0; left: 0; z-index: 1030; margin-left: -260px; }
+    .sidebar.active { margin-left: 0; }
+    #sidebar-toggle { display: block; margin-right: 15px; }
+    .topbar { justify-content: flex-end; position: relative; }
+    #sidebar-toggle { position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); }
+}

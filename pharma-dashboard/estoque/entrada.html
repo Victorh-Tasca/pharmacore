@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PharmaKore - Entrada de Lote</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../images/favicon/site.webmanifest">
+    <link rel="icon" href="../images/favicon/favicon.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
+</head>
+<body>
+    
+    <div class="d-flex" id="wrapper">
+
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/logop.png" alt="Logo PharmaKore" class="sidebar-logo">
+                <h3>PharmaKore</h3>
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">
+                        <i class="bi bi-grid-fill"></i> DashBoard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="estoque.html">
+                        <i class="bi bi-box-seam-fill"></i> Estoque (Lotes)
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estoque_medicamento.html">
+                        <i class="bi bi-clipboard-data-fill"></i> Estoque (Medicamentos)
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">CADASTROS</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/medicamentos.html">
+                        <i class="bi bi-plus-circle-fill"></i> Medicamentos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/pacientes.html">
+                        <i class="bi bi-person-fill"></i> Pacientes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/laboratorios.html">
+                        <i class="bi bi-building"></i> Laboratórios
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/classes_terapeuticas.html">
+                        <i class="bi bi-tags-fill"></i> Classes Terapêuticas
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../cadastro/fornecedores.html">
+                        <i class="bi bi-truck"></i> Fornecedores
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">RELATÓRIOS</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../relatorios/alertas.html">
+                        <i class="bi bi-exclamation-triangle-fill"></i> Alertas de Validade
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../relatorios/relatorios.html">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i> Relatórios
+                    </a>
+                </li>
+                <hr class="sidebar-divider my-2">
+                <li class="nav-item-title">ADMINISTRAÇÃO</li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/usuarios.html">
+                        <i class="bi bi-people-fill"></i> Usuários
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/papeis.html">
+                        <i class="bi bi-shield-lock-fill"></i> Papéis e Permissões
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../admin/configuracoes.html">
+                        <i class="bi bi-gear-fill"></i> Configurações
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div id="main-content">
+            
+            <header class="topbar shadow-sm">
+                <button class="btn btn-light d-lg-none" id="sidebar-toggle">
+                    <i class="bi bi-list"></i>
+                </button>
+                <div class="ms-auto d-flex align-items-center">
+                    <div class="theme-switcher me-3">
+                        <input type="checkbox" id="darkModeToggle">
+                        <label for="darkModeToggle" class="slider"></label>
+                    </div>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Olá, Leo
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="#">Sair</a></li> </ul>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="container-fluid p-4">
+                <h1 class="h2 mb-4">Registrar Entrada de Lote</h1>
+
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h5 class="mb-0">Informações do Lote e Entrada</h5>
+                    </div>
+                    <div class="card-body">
+                        <form id="formEntrada">
+                            <div class="row g-3">
+                                <h5 class="h6 mb-2">Dados do Lote</h5>
+                                <div class="col-md-6">
+                                    <label for="medicamento_id" class="form-label">Medicamento <span class="text-danger">*</span></label>
+                                    <select id="medicamento_id" class="form-select" required>
+                                        <option value="" data-unidade-base="">Selecione o medicamento</option>
+                                        <option value="1" data-unidade-base="comprimido">Dipirona 500mg</option>
+                                        <option value="2" data-unidade-base="ml">Amoxilina 250mg (Xarope)</option>
+                                        <option value="3" data-unidade-base="capsula">Losartana 50mg</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="data_fabricacao" class="form-label">Data de Fabricação <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="data_fabricacao" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="validade" class="form-label">Data de Validade <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" id="validade" required>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <hr class="my-3">
+                                </div>
+
+                                <h5 class="h6 mb-2">Dados da Entrada</h5>
+                                <div class="col-md-6">
+                                    <label for="fornecedor_id" class="form-label">Fornecedor <span class="text-danger">*</span></label>
+                                    <select id="fornecedor_id" class="form-select" required>
+                                        <option value="">Selecione o fornecedor</option>
+                                        <option value="1">Doação ABC</option>
+                                        <option value="2">Compra XYZ</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="numero_lote_fornecedor" class="form-label">Nº Lote (Fornecedor) <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="numero_lote_fornecedor" placeholder="Ex: A123B456" required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="quantidade_informada" class="form-label">Qtd. Recebida <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="quantidade_informada" min="1" required>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="unidade" class="form-label">Unidade Recebida <span class="text-danger">*</span></label>
+                                    <select id="unidade" class="form-select" required>
+                                        <option value="">Selecione a unidade</option>
+                                        <option value="caixa">Caixa</option>
+                                        <option value="frasco">Frasco</option>
+                                        <option value="comprimido">Comprimido (unidade)</option>
+                                        <option value="ml">ML</option>
+                                        <option value="capsula">Cápsula</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-4" id="campoUnidadesPorEmbalagem" style="display: none;">
+                                    <label for="unidades_por_embalagem" class="form-label">Unidades por Embalagem <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="unidades_por_embalagem" min="1" 
+                                           title="Quantas unidades base (ex: comprimidos) vêm na unidade recebida (ex: caixa)?">
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="estado" class="form-label">Estado do Item (Opcional)</label>
+                                    <select id="estado" class="form-select">
+                                        <option value="novo">Novo</option>
+                                        <option value="lacrado">Lacrado</option>
+                                        <option value="aberto">Aberto</option>
+                                        <option value="avariado">Avariado</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label for="observacao" class="form-label">Observação (Opcional)</label>
+                                    <textarea class="form-control" id="observacao" rows="1"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 text-end">
+                                <a href="estoque.html" class="btn btn-secondary">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Salvar Entrada</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <script src="js/form-entrada.js"></script>
+</body>
+</html>
