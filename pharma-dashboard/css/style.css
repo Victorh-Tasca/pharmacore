@@ -153,3 +153,31 @@ h1, h2, h5, .display-4 {
     .topbar { justify-content: flex-end; position: relative; }
     #sidebar-toggle { position: absolute; left: 1.5rem; top: 50%; transform: translateY(-50%); }
 }
+
+.stat-card .card-title {
+    text-align: center;
+    margin-bottom: 0.5rem; 
+    
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    max-width: 100%; 
+    display: block;
+}
+
+.stat-card .card-body {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.stat-card .display-4 {
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
