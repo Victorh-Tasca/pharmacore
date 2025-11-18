@@ -116,34 +116,54 @@
                     </ul>
                 </div>
                 <hr class="sidebar-divider my-2">
-                <li class="nav-item-title">RELATÓRIOS</li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="relatorios/alertas.html">
-                        <i class="bi bi-exclamation-triangle-fill"></i> Alertas de Validade
+                    <a class="nav-link collapsed dropdown-toggle" data-bs-toggle="collapse" href="#collapseRelatorios" aria-expanded="false" aria-controls="collapseRelatorios">
+                        <i class="bi bi-file-earmark-bar-graph-fill"></i> RELATÓRIOS
+                        <i class="bi bi-chevron-down ms-auto" style="font-size: 0.8rem;"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="relatorios/relatorios.html">
-                        <i class="bi bi-file-earmark-bar-graph-fill"></i> Relatórios
-                    </a>
-                </li>
+                <div class="collapse" id="collapseRelatorios" data-bs-parent="#sidebar">
+                    <ul class="nav flex-column ps-3"> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="relatorios/alertas.html">
+                                <i class="bi bi-exclamation-triangle-fill"></i> Alertas de Validade
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="relatorios/relatorios.html">
+                                <i class="bi bi-file-earmark-bar-graph-fill"></i> Relatórios
+                            </a>
+                        </li>
+                    </ul>
+                </div>
                 <hr class="sidebar-divider my-2">
-                <li class="nav-item-title">ADMINISTRAÇÃO</li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/usuarios.html">
-                        <i class="bi bi-people-fill"></i> Usuários
+                    <a class="nav-link collapsed dropdown-toggle" data-bs-toggle="collapse" href="#collapseAdmin" aria-expanded="false" aria-controls="collapseAdmin">
+                        <i class="bi bi-gear-fill"></i> ADMINISTRAÇÃO
+                        <i class="bi bi-chevron-down ms-auto" style="font-size: 0.8rem;"></i>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin/papeis.html">
-                        <i class="bi bi-shield-lock-fill"></i> Papéis e Permissões
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="admin/configuracoes.html">
-                        <i class="bi bi-gear-fill"></i> Configurações
-                    </a>
-                </li>
+                <div class="collapse" id="collapseAdmin" data-bs-parent="#sidebar">
+                    <ul class="nav flex-column ps-3"> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/usuarios.html">
+                                <i class="bi bi-people-fill"></i> Usuários
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/papeis.html">
+                                <i class="bi bi-shield-lock-fill"></i> Papéis e Permissões
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/configuracoes.html">
+                                <i class="bi bi-gear-fill"></i> Configurações
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </ul>
         </nav>
         <div id="main-content">

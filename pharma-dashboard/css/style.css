@@ -168,12 +168,6 @@ h1, h2, h5, .display-4 {
     display: none;
 }
 
-/* 5. Ajuste de Indentação (Para o submenu não ficar grudado) */
-.sidebar .collapse .nav-link {
-    padding: 10px 20px 10px 25px; 
-    font-size: 0.95rem;
-}
-
 /* --- Fim da Estilização do Menu Collapsible na Sidebar --- */
 
 /* --- Responsividade (Mobile) --- */
