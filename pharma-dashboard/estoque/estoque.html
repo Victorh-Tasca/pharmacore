@@ -263,7 +263,76 @@
             </main>
         </div>
     </div>
+<div class="modal fade" id="modalHistoricoEntradas" tabindex="-1" aria-labelledby="modalHistoricoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalHistoricoTitle">Histórico de Entradas do Lote</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Medicamento:</strong> <span id="hist_medicamento_nome"></span></p>
+                <p><strong>Validade:</strong> <span id="hist_validade"></span></p>
+                <div class="table-responsive">
+                    <table class="table table-sm table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Data Entrada</th>
+                                <th>Fornecedor</th>
+                                <th>Lote Fornecedor</th>
+                                <th>Qtd. Informada</th>
+                                <th>Unidade</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabelaHistoricoEntradas">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="modal fade" id="modalEditarEntrada" tabindex="-1" aria-labelledby="modalEditarEntradaTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <form id="formEditarEntrada">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalEditarEntradaTitle">Editar Quantidade da Entrada</h5>
+                    <button type="button" class="btn-close" data-bs-toggle="modal" data-bs-target="#modalHistoricoEntradas" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="edit_entrada_id">
+                    <p><strong>Medicamento:</strong> <span id="edit_medicamento_nome"></span></p>
+                    <p><strong>Lote Fornecedor:</strong> <span id="edit_lote_fornecedor"></span></p>
+                    
+                    <div class="row g-3">
+                        <div class="col-6">
+                            <label for="edit_quantidade_informada" class="form-label">Qtd. Informada</label>
+                            <input type="number" class="form-control" id="edit_quantidade_informada" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="edit_unidade" class="form-label">Unidade</label>
+                            <input type="text" class="form-control" id="edit_unidade" readonly disabled>
+                        </div>
+                        <div class="col-12" id="edit_campoUnidadesPorEmbalagem" style="display: none;">
+                            <label for="edit_unidades_por_embalagem" class="form-label">Unidades por Embalagem</label>
+                            <input type="number" class="form-control" id="edit_unidades_por_embalagem">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalHistoricoEntradas">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Alteração</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/script.js"></script>
     </body>

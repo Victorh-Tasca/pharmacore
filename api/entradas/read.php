@@ -14,6 +14,13 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     exit();
 }
 
+if (!isset($_GET['lote_id']) || empty($_GET['lote_id'])) {
+     http_response_code(400);
+    echo json_encode(["message" => "O ID do lote é obrigatório."]);
+    exit();
+}
+
+$lote_id = $_GET['lote_id'];
 $database = new Database();
 $db = $database->getConnection();
 
@@ -25,25 +32,29 @@ if (!$db) {
 
 try {
     $query = "SELECT 
-                v.lote_id,
-                v.medicamento_id,
-                v.medicamento,
-                v.codigo,
-                v.tarja,
-                v.quantidade_disponivel,
-                v.validade,
-                v.dias_para_vencimento,
-                v.status
+                e.id, 
+                e.data_entrada, 
+                f.nome AS fornecedor, 
+                e.numero_lote_fornecedor,
+                e.quantidade_informada,
+                e.unidade,
+                e.unidades_por_embalagem,
+                m.unidade_base
             FROM 
-                vw_estoque_por_lote v
+                entradas e
+            JOIN 
+                fornecedores f ON e.fornecedor_id = f.id
             JOIN
-                lotes l ON v.lote_id = l.id
-            WHERE
-                l.ativo = TRUE
+                lotes l ON e.lote_id = l.id
+            JOIN
+                medicamentos m ON l.medicamento_id = m.id
+            WHERE 
+                e.lote_id = :lote_id
             ORDER BY 
-                v.dias_para_vencimento ASC";
+                e.data_entrada DESC";
     
     $stmt = $db->prepare($query);
+    $stmt->bindParam(':lote_id', $lote_id);
     $stmt->execute();
 
     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
