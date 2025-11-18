@@ -1,30 +1,44 @@
 <?php
 class Database {
-    // --- PREENCHER COM AS CREDENCIAIS DO BANCO DE DADOS ---
-    private $host = "localhost"; // ou o IP do servidor de banco de dados
-    private $db_name = "farmacia"; // nome do banco de dados, conforme schema
-    private $username = "postgres"; // usuário do banco de dados
-    private $password = "sua_senha_aqui"; // senha do usuário
-    private $port = "5432"; // porta padrão do PostgreSQL
-    // ----------------------------------------------------
 
+    private $database_url;
     public $conn;
 
-    // obtém a conexão com o banco de dados
-    public function getConnection() {
-        $this->conn = null;
+    public function __construct() {
 
-        try {
-            $dsn = "pgsql:host=" . $this->host . ";port=" . $this->port . ";dbname=" . $this->db_name;
-            $this->conn = new PDO($dsn, $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch(PDOException $exception) {
-            // Em produção, é melhor logar o erro do que exibi-lo
-            // echo "Connection error: " . $exception->getMessage();
-            return null;
-        }
-
-        return $this->conn;
+        $this->database_url = getenv('DATABASE_URL');
     }
+    
+public function getConnection() {
+
+    $this->conn = null;
+
+    if ($this->database_url === false || $this->database_url === null) {
+        // MUDANÇA: Vamos "lançar" uma exceção que o register.php pode pegar
+        throw new Exception("Erro Crítico: DATABASE_URL não definida ou não carregada.");
+    }
+
+    $db_parts = parse_url($this->database_url);
+
+    if ($db_parts === false) {
+        throw new Exception("Erro: A DATABASE_URL está mal formatada.");
+    }
+
+    $host     = $db_parts['host'] ?? null;
+    $port     = $db_parts['port'] ?? 5432; 
+    $username = $db_parts['user'] ?? null;
+    $password = $db_parts['pass'] ?? null; 
+    $db_name  = ltrim($db_parts['path'], '/'); 
+
+    try {
+        $dsn = "pgsql:host=" . $host . ";port=" . $port . ";dbname=" . $db_name;
+        $this->conn = new PDO($dsn, $username, $password); 
+        $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch(PDOException $exception) {
+        // MUDANÇA: Lança a exceção de PDO
+        throw new Exception("Erro de Conexão PDO: " . $exception->getMessage());
+    }
+
+    return $this->conn;
 }
-?>
+}

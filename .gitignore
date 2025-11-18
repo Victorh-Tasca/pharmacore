@@ -4,3 +4,4 @@ tools/
 ~$*.xlsx
 ~$*.docx
 ~$*.pptx
+.env

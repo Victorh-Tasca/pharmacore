@@ -67,16 +67,18 @@ try {
     $stmt->execute();
     http_response_code(201); // Created
     echo json_encode(["message" => "Conta criada com sucesso!"]);
-} catch (PDOException $e) {    
-    // Trata a violação de constraint UNIQUE (código 23505 no PostgreSQL),
-    // que indica que o e-mail ou login já existem.
+
+} catch (PDOException $e) { 
+    // Erros específicos do banco (como email duplicado)
     if ($e->getCode() == '23505') {
         http_response_code(409); // Conflict
         echo json_encode(["message" => "Este e-mail já está em uso."]);
     } else {
-        http_response_code(500); // Internal Server Error
-        // Em ambiente de produção, é recomendado logar o erro em vez de exibi-lo.
-        // error_log("Erro ao registrar usuário: " . $e->getMessage());
-        echo json_encode(["message" => "Não foi possível criar a conta."]);
+        http_response_code(500); 
+        echo json_encode(["message" => "Erro de PDO: " . $e->getMessage()]);
     }
+} catch (Exception $e) { 
+    // MUDANÇA: Pega a exceção do Database.php
+    http_response_code(500);
+    echo json_encode(["message" => $e->getMessage()]);
 }
