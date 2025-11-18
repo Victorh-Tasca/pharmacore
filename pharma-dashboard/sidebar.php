@@ -1,21 +1,21 @@
 <nav class="sidebar" id="sidebar">
     <div class="sidebar-header">
-        <img src="images/logop.png" alt="Logo PharmaKore" class="sidebar-logo">
+        <img src="/pharmacore/pharma-dashboard/images/logop.png" alt="Logo PharmaKore" class="sidebar-logo">
         <h3>PharmaKore</h3>
     </div>
     <ul class="nav flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="index.html">
+            <a class="nav-link active" href="/pharmacore/pharma-dashboard/index.html">
                 <i class="bi bi-grid-fill"></i> DashBoard
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="estoque/estoque.html">
+            <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque.html">
                 <i class="bi bi-box-seam-fill"></i> Estoque (Lotes)
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="estoque/estoque_medicamento.html">
+            <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque_medicamento.html">
                 <i class="bi bi-clipboard-data-fill"></i> Estoque (Medicamentos)
             </a>
         </li>
@@ -30,27 +30,27 @@
         <div class="collapse" id="collapseCadastros" data-bs-parent="#sidebar">
             <ul class="nav flex-column ps-3"> 
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro/medicamentos.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/cadastro/medicamentos.html">
                         <i class="bi bi-plus-circle-fill"></i> Medicamentos
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro/pacientes.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/cadastro/pacientes.html">
                         <i class="bi bi-person-fill"></i> Pacientes
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro/laboratorios.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/cadastro/laboratorios.html">
                         <i class="bi bi-building"></i> Laboratórios
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro/classes_terapeuticas.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/cadastro/classes_terapeuticas.html">
                         <i class="bi bi-tags-fill"></i> Classes Terapêuticas
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cadastro/fornecedores.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/cadastro/fornecedores.html">
                         <i class="bi bi-truck"></i> Fornecedores
                     </a>
                 </li>
@@ -67,12 +67,12 @@
         <div class="collapse" id="collapseRelatorios" data-bs-parent="#sidebar">
             <ul class="nav flex-column ps-3"> 
                 <li class="nav-item">
-                    <a class="nav-link" href="relatorios/alertas.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/relatorios/alertas.html">
                         <i class="bi bi-exclamation-triangle-fill"></i> Alertas de Validade
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="relatorios/relatorios.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/relatorios/relatorios.html">
                         <i class="bi bi-file-earmark-bar-graph-fill"></i> Relatórios
                     </a>
                 </li>
@@ -89,17 +89,17 @@
         <div class="collapse" id="collapseAdmin" data-bs-parent="#sidebar">
             <ul class="nav flex-column ps-3"> 
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/usuarios.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/admin/usuarios.html">
                         <i class="bi bi-people-fill"></i> Usuários
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/papeis.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/admin/papeis.html">
                         <i class="bi bi-shield-lock-fill"></i> Papéis e Permissões
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin/configuracoes.html">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/admin/configuracoes.html">
                         <i class="bi bi-gear-fill"></i> Configurações
                     </a>
                 </li>
