@@ -24,11 +24,26 @@ if (!$db) {
 }
 
 try {
-    $query = "SELECT id, nome, descricao FROM papeis ORDER BY nome";
+    $query = "SELECT 
+                p.id, p.nome, p.descricao,
+                COALESCE(JSON_AGG(pp.permissao_id) FILTER (WHERE pp.permissao_id IS NOT NULL), '[]') AS permissoes
+            FROM 
+                papeis p
+            LEFT JOIN 
+                papeis_permissoes pp ON p.id = pp.papel_id
+            GROUP BY
+                p.id
+            ORDER BY 
+                p.nome";
+    
     $stmt = $db->prepare($query);
     $stmt->execute();
 
     $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($items as &$item) {
+        $item['permissoes'] = json_decode($item['permissoes']);
+    }
 
     http_response_code(200);
     echo json_encode($items);
