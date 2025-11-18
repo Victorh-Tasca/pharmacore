@@ -1,23 +1,38 @@
-
 document.addEventListener("DOMContentLoaded", function() {
 
-    // --- LÓGICA DO TOGGLE DA SIDEBAR ---
-    const sidebarToggle = document.getElementById('sidebar-toggle');
-    const sidebar = document.getElementById('sidebar');
+    function loadUserData() {
+        const userName = localStorage.getItem('pharma_user_name');
+        if (userName) {
+            const userDropdown = document.getElementById('userDropdown');
+            if (userDropdown) {
+                userDropdown.textContent = `Olá, ${userName}`;
+            }
+        }
+    }
 
-    if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('active');
+    function setupLogout() {
+        const logoutLinks = document.querySelectorAll('a.dropdown-item');
+        logoutLinks.forEach(link => {
+            if (link.textContent.trim() === 'Sair') {
+                link.href = '/api/auth/logout.php';
+            }
         });
     }
 
-    // --- LÓGICA DO MODO NOTURNO ---
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const wrapper = document.getElementById('wrapper'); 
+
+    if (sidebarToggle && (sidebar || wrapper)) {
+        sidebarToggle.addEventListener('click', function() {
+            if (sidebar) sidebar.classList.toggle('active');
+            if (wrapper) wrapper.classList.toggle('sidebar-toggled'); 
+        });
+    }
+
     const toggle = document.getElementById('darkModeToggle');
-    
-    
     const rootElement = document.documentElement; 
 
-    
     function applySavedTheme() {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -29,7 +44,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    
     if (toggle) {
         toggle.addEventListener('change', function() {
             if (toggle.checked) {
@@ -42,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    
     applySavedTheme();
-
+    setupLogout();
+    loadUserData();
 });

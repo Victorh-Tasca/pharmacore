@@ -16,14 +16,40 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dark-mode.css">
 
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();
-    </script>
+<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+
+        fetch('../api/auth/session.php', { method: 'POST' })
+            .then(response => {
+                if (response.status === 401) {
+                    window.location.href = '../pharma-login/index.html';
+                    return Promise.reject('Sessão inválida');
+                }
+                return response.json();
+            })
+            .then(data => {
+                if (data.logged_in) {
+                    const userDropdown = document.getElementById('userDropdown');
+                    if (userDropdown) {
+                        userDropdown.textContent = `Olá, ${data.user_name}`;
+                    }
+                    document.documentElement.style.visibility = 'visible';
+                } else {
+                    window.location.href = '../pharma-login/index.html';
+                }
+            })
+            .catch(err => {
+                if (err !== 'Sessão inválida') {
+                    console.error('Erro ao verificar sessão:', err);
+                    window.location.href = '../pharma-login/index.html';
+                }
+            });
+    })();
+</script>
 </head>
 <body>
     
@@ -121,7 +147,7 @@
                     </div>
                     <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Olá, Leo
+                            Olá
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
                              <li><a class="dropdown-item" href="#">Sair</a></li> </ul>
