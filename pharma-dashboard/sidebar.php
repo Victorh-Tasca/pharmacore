@@ -10,15 +10,26 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque.html">
-                <i class="bi bi-box-seam-fill"></i> Estoque (Lotes)
+            <a class="nav-link collapsed dropdown-toggle" data-bs-toggle="collapse" href="#collapseEstoque" aria-expanded="false" aria-controls="collapseEstoque">
+                <i class="bi bi-box-seam-fill"></i> ESTOQUE
+                <i class="bi bi-chevron-down ms-auto" style="font-size: 0.8rem;"></i>
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque_medicamento.html">
-                <i class="bi bi-clipboard-data-fill"></i> Estoque (Medicamentos)
-            </a>
-        </li>
+        
+        <div class="collapse" id="collapseEstoque" data-bs-parent="#sidebar">
+            <ul class="nav flex-column ps-3"> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque.html">
+                        <i class="bi bi-box-seam-fill"></i> Lotes
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pharmacore/pharma-dashboard/estoque/estoque_medicamento.html">
+                        <i class="bi bi-clipboard-data-fill"></i> Medicamentos
+                    </a>
+                </li>
+            </ul>
+        </div>
         <hr class="sidebar-divider my-2">
 
         <li class="nav-item">
