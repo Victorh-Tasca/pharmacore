@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tabelaCorpo = document.querySelector("table tbody");
     const containerPapeis = document.querySelector('[data-grupo-papeis]').parentNode;
 
-    const API_URL = "/api/usuarios/";
+    const API_URL = "/pharmacore/api/usuarios/";
     let listaDePapeis = [];
 
     async function fetchData(url, options = {}) {
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     async function carregarPapeis() {
-        const data = await fetchData('/api/papeis/read.php');
+        const data = await fetchData('/pharmacore/api/papeis/read.php');
         if (!data) return;
         
         listaDePapeis = data;

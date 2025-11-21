@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tabelaValidade = document.querySelector("#cardValidade table tbody");
     const tabelaEstoque = document.querySelector("#cardEstoqueBaixo table tbody");
-    const API_URL = "/api/alertas/read.php";
+    const API_URL = "/pharmacore/api/alertas/read.php";
 
     async function fetchData(url, options = {}) {
         try {

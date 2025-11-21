@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalTitle = document.getElementById('modalTitle');
     const tabelaCorpo = document.querySelector("table tbody");
 
-    const API_URL = "/api/medicamentos/";
+    const API_URL = "/pharmacore/api/medicamentos/";
     
     const selectClasses = document.getElementById('classe_terapeutica_id');
     const selectLaboratorios = document.getElementById('laboratorio_id');
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function carregarDropdowns() {
         const [classes, laboratorios] = await Promise.all([
-            fetchData('/api/classes_terapeuticas/read.php'),
-            fetchData('/api/laboratorios/read.php')
+            fetchData('/pharmacore/api/classes_terapeuticas/read.php'),
+            fetchData('/pharmacore/api/laboratorios/read.php')
         ]);
 
         if (classes) {

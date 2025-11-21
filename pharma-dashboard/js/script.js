@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const logoutLinks = document.querySelectorAll('a.dropdown-item');
         logoutLinks.forEach(link => {
             if (link.textContent.trim() === 'Sair') {
-                link.href = '/api/auth/logout.php';
+                link.href = '/pharmacore/api/auth/logout.php';
             }
         });
     }
