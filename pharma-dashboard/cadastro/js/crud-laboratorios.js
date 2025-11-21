@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalTitle = document.getElementById('modalTitle');
     const tabelaCorpo = document.querySelector("table tbody");
 
-    const API_URL = "/api/laboratorios/";
+    const API_URL = "/pharmacore/api/laboratorios/";
 
     async function fetchData(url, options = {}) {
         try {

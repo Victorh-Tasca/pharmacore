@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     const tabelaCorpo = document.querySelector("table tbody");
-    const API_URL_ESTOQUE = "/api/estoque/";
-    const API_URL_ENTRADAS = "/api/entradas/";
+    const API_URL_ESTOQUE = "/pharmacore/api/estoque/";
+    const API_URL_ENTRADAS = "/pharmacore/api/entradas/";
 
     const modalHistorico = new bootstrap.Modal(document.getElementById('modalHistoricoEntradas'));
     const modalEditar = new bootstrap.Modal(document.getElementById('modalEditarEntrada'));

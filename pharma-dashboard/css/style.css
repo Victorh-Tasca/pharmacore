@@ -144,6 +144,31 @@ h1, h2, h5, .display-4 {
 }
 /* --- Fim dos Estilos da Sidebar --- */
 
+/* --- Estilização do Menu Collapsible na Sidebar --- */
+
+/* 1. Alinha o conteúdo e move a seta para a direita */
+.sidebar .nav-link.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* 2. Garante que o ícone de seta tenha uma transição suave ao girar */
+.sidebar .nav-link i.bi-chevron-down {
+    transition: transform 0.3s ease;
+}
+
+/* 3. Regra para o Estado ABERTO: Gira a seta 180 graus */
+.sidebar .nav-link.dropdown-toggle:not(.collapsed) i.bi-chevron-down {
+    transform: rotate(180deg);
+}
+
+/* 4. CORREÇÃO: Esconde a seta padrão que o Bootstrap adiciona ao dropdown-toggle */
+.sidebar .nav-link.dropdown-toggle::after {
+    display: none;
+}
+
+/* --- Fim da Estilização do Menu Collapsible na Sidebar --- */
 
 /* --- Responsividade (Mobile) --- */
 @media (max-width: 992px) {

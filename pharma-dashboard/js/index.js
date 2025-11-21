@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tabelaCorpo = document.querySelector(".card:last-child table tbody");
 
-    const API_URL_DASHBOARD = "/api/dashboard/";
+    const API_URL_DASHBOARD = "/pharmacore/api/dashboard/";
 
     async function fetchData(url, options = {}) {
         try {

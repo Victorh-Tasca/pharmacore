@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    const API_URL = "/api/usuarios/";
+    const API_URL = "/pharmacore/api/usuarios/";
     
     const formMeusDados = document.getElementById('formMeusDados');
     const formAlterarSenha = document.getElementById('formAlterarSenha');

@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function carregarDropdowns() {
         const [medicamentos, fornecedores] = await Promise.all([
-            fetchData('/api/medicamentos/read.php'),
-            fetchData('/api/fornecedores/read.php')
+            fetchData('/pharmacore/api/medicamentos/read.php'),
+            fetchData('/pharmacore/api/fornecedores/read.php')
         ]);
 
         if (medicamentos) {
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
             observacao: document.getElementById('observacao').value
         };
 
-        const result = await fetchData('/api/estoque/create_entrada.php', {
+        const result = await fetchData('/pharmacore/api/estoque/create_entrada.php', {
             method: 'POST',
             body: JSON.stringify(data)
         });
