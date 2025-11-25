@@ -32,7 +32,7 @@ Sistema de gestão de estoque de medicamentos focado em controle de lotes, rastr
 Crie o arquivo `.env` na raiz do projeto e use a string do Pooler:
 
 ```env
-DATABASE_URL=postgresql://postgres.hcppdyfnkzhgvmgspeeq:SUA_SENHA_AQUI@aws-1-sa-east-1.pooler.supabase.com:5432/postgres 
+DATABASE_URL=postgresql://postgres.hcppdyfnkzhgvmgspeeq:puo5x0HWIqDi26yC@aws-1-sa-east-1.pooler.supabase.com:5432/postgres 
 ```
 
 ***
